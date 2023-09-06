@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@myorg/client/setup": ["libs/setup/src/index.ts"],
+      "@myorg/client": ["libs/client/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
