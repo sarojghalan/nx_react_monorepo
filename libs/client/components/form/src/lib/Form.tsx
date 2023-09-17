@@ -1,54 +1,38 @@
-import { useForm } from 'react-hook-form';
+import React from 'react';
+import { useForm, FormProvider, useFormContext } from 'react-hook-form';
 import { formSchema, FormSchemaData } from '../schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { red } from '@mui/material/colors';
+import TabOne from './Tabs/TabOne';
+import TabThree from './Tabs/TabThree';
+import TabTwo from './Tabs/TabTwo';
 export const Form = () => {
   const initialState = {
+    firstName: '',
+    lastName: '',
     email: '',
-    password: ''
+    phoneNo: '',
+    fatherName: '',
+    fatherNo: ''
   };
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<FormSchemaData>({
-    resolver: zodResolver(formSchema),
+  const methods = useForm<FormSchemaData>({
+    // resolver: zodResolver(formSchema),
     defaultValues: { ...initialState }
   });
 
   const onSubmit = (data: FormSchemaData) => {
     console.log(data);
   };
+  const [tabState, setTabState] = React.useState<number>(0);
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label htmlFor="">Email : </label>
-        <input
-          type="text"
-          {...register('email')}
-          placeholder="Enter Email Here ..."
-        />
-        <span style={{ color: 'red' }}>{errors.email?.message}</span>
-      </div>
-      <div>
-        <label htmlFor="">Password : </label>
-        <input
-          type="password"
-          {...register('email')}
-          placeholder="Enter Password Here ..."
-        />
-        <span style={{ color: 'red' }}>{errors.email?.message}</span>
-      </div>
-      <div>
-        <button type="submit">Login</button>
-      </div>
-      <div className="flex items-center justify-center h-screen">
-        <p>asdfasdf</p>
-        <p>asdfasdf</p>
-        <p>asdfasdf</p>
-        <p>asdfasdf</p>
-      </div>
-    </form>
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit(onSubmit)}>
+        {tabState === 0 && <TabOne setTabState={setTabState} />}
+        {tabState === 1 && <TabTwo setTabState={setTabState} />}
+        {tabState === 2 && <TabThree setTabState={setTabState} />}
+
+      </form>
+    </FormProvider>
   );
 };
