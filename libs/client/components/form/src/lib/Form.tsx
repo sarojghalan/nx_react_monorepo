@@ -27,11 +27,13 @@ export const Form = () => {
   const [tabState, setTabState] = React.useState<number>(0);
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
+      <form
+        onSubmit={methods.handleSubmit(onSubmit)}
+        className="font-signature flex h-screen items-center justify-center bg-gray-300 "
+      >
         {tabState === 0 && <TabOne setTabState={setTabState} />}
         {tabState === 1 && <TabTwo setTabState={setTabState} />}
         {tabState === 2 && <TabThree setTabState={setTabState} />}
-
       </form>
     </FormProvider>
   );
