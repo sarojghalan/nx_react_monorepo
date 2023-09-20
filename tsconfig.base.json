@@ -17,9 +17,10 @@
     "paths": {
       "@myorg/client": ["libs/client/src/index.ts"],
       "@myorg/client/setup": ["libs/setup/src/index.ts"],
+      "@org/client//layouts": ["libs/client/layouts/src/index.ts"],
       "@org/client/components/form": [
         "libs/client/components/form/src/index.ts"
-      ],
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
