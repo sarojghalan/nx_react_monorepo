@@ -8,9 +8,9 @@ interface TAB_ONE {
 const TabOne = ({ setTabState }: TAB_ONE) => {
   const { register } = useFormContext();
   return (
-    <div>
+    <div className="bg-black p-10 text-white rounded text-center">
       <p>Personal Information</p>
-      <div>
+      <div className="leading-tight">
         <label htmlFor="firstName">First Name : </label>
         <input
           type="text"
@@ -26,7 +26,9 @@ const TabOne = ({ setTabState }: TAB_ONE) => {
           {...register('lastName')}
         />
       </div>
-      <button onClick={() => setTabState(1)}>next</button>
+      <div className="text-center bg-red-950 mx-6 text-white">
+        <button onClick={() => setTabState(1)}>next</button>
+      </div>
     </div>
   );
 };

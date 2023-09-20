@@ -9,7 +9,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/react-monorepo-practice"
+        "outputPath": "dist/apps/react-monorepo-practice",
+        "postcssConfig": "apps/react-monorepo-practice/postcss.config.js"
       },
       "configurations": {
         "development": {
