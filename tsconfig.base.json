@@ -20,7 +20,9 @@
       "@org/client//layouts": ["libs/client/layouts/src/index.ts"],
       "@org/client/components/form": [
         "libs/client/components/form/src/index.ts"
-      ]
+      ],
+      "@org/client/pages": ["libs/client/pages/src/index.ts"],
+      "@org/client/utility": ["libs/client/utility/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
